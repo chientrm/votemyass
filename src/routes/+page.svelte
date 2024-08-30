@@ -5,6 +5,7 @@
 	import { configs } from '$lib/configs';
 	import Form from './form.svelte';
 	import { flags } from '$lib/flags';
+	import { cn } from '$lib/utils';
 
 	export let data;
 </script>
@@ -32,7 +33,11 @@
 				<Table.Cell>
 					<Button variant="link" href="/poll/{id}">{title}</Button>
 				</Table.Cell>
-				<Table.Cell class="text-right">{((100 * yes) / votes).toFixed(0)} %</Table.Cell>
+				<Table.Cell
+					class={cn('text-right text-white', yes / votes >= 0.5 ? 'bg-green-500' : 'bg-red-500')}
+				>
+					{yes} yes/ {votes} votes ({((100 * yes) / votes).toFixed(0)} %)
+				</Table.Cell>
 			</Table.Row>
 		{/each}
 	</Table.Body>
