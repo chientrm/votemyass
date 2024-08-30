@@ -1,8 +1,10 @@
 <script>
-	import { Button } from '$lib/components/ui/button';
+	import Form from './form.svelte';
+	export let data;
 </script>
 
-<h1>Welcome to VoteMyAss.com</h1>
-<p>Those who have hands, let them vote!</p>
+<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+	Those who have hands, let them vote!
+</h3>
 
-<Button href="/poll/new">New Poll</Button>
+<Form data={data.form} />
