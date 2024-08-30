@@ -4,6 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { configs } from '$lib/configs';
 	import Form from './form.svelte';
+	import { flags } from '$lib/flags';
 
 	export let data;
 </script>
@@ -16,18 +17,18 @@
 <Form data={data.form} />
 
 <Table.Root>
-	<Table.Caption>A list of your recent invoices.</Table.Caption>
+	<Table.Caption>A list of recent polls.</Table.Caption>
 	<Table.Header>
 		<Table.Row>
-			<Table.Head class="w-[100px]">Title</Table.Head>
-			<Table.Head>Country</Table.Head>
+			<Table.Head class="w-[100px]">Country</Table.Head>
+			<Table.Head>Title</Table.Head>
 			<Table.Head class="text-right">Result</Table.Head>
 		</Table.Row>
 	</Table.Header>
 	<Table.Body>
 		{#each data.pollResults as { id, title, country, yes, votes }}
 			<Table.Row>
-				<Table.Cell class="font-medium">{country}</Table.Cell>
+				<Table.Cell class="font-medium">{flags[country]}</Table.Cell>
 				<Table.Cell>
 					<Button variant="link" href="/poll/{id}">{title}</Button>
 				</Table.Cell>
