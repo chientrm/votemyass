@@ -1,0 +1,1 @@
+ALTER TABLE `votes` ADD `value` text NOT NULL;

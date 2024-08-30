@@ -3,8 +3,8 @@
 	export let data;
 </script>
 
-<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
 	Those who have hands, let them vote!
-</h3>
+</h1>
 
 <Form data={data.form} />

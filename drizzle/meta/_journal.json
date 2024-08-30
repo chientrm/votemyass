@@ -8,6 +8,20 @@
       "when": 1724997905885,
       "tag": "0000_jazzy_otto_octavius",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1725033727241,
+      "tag": "0001_regular_argent",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1725035237543,
+      "tag": "0002_bitter_the_leader",
+      "breakpoints": true
     }
   ]
 }
