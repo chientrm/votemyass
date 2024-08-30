@@ -1,9 +1,8 @@
 <script>
-	import { page } from '$app/stores';
 	import { buttonVariants } from '$lib/components/ui/button';
 	import { cn } from '$lib/utils';
-	import IconParkTwotoneAppleOne from '~icons/icon-park-twotone/apple-one';
 	import MdiGithub from '~icons/mdi/github';
+	import icon from '$lib/ass.png';
 	import '../app.css';
 </script>
 
@@ -13,7 +12,7 @@
 	<div class="container flex h-14 max-w-screen-2xl items-center">
 		<div class="mr-4 hidden md:flex">
 			<a href="/" class="mr-6 flex items-center space-x-2">
-				<!-- <IconParkTwotoneAppleOne class="h-6 w-6" /> -->
+				<img src={icon} alt="Vote my ass" class="h-6 w-6" />
 				<span class="hidden font-bold sm:inline-block">VoteMyAss.com</span>
 			</a>
 			<nav class="flex items-center gap-6 text-sm">
