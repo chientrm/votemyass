@@ -1,0 +1,13 @@
+[Unit]
+Description=votemyass
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/votemyass
+ExecStart=/home/ubuntu/votemyass/start.sh
+Environment=PORT=3060
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
