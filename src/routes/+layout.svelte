@@ -1,10 +1,31 @@
 <script>
+	import { page } from '$app/stores';
+	import { PUBLIC_URL } from '$env/static/public';
+	import icon from '$lib/ass.png';
 	import { buttonVariants } from '$lib/components/ui/button';
+	import { configs } from '$lib/configs';
 	import { cn } from '$lib/utils';
 	import MdiGithub from '~icons/mdi/github';
-	import icon from '$lib/ass.png';
 	import '../app.css';
 </script>
+
+<svelte:head>
+	<title>{configs.title}</title>
+	<meta name="description" content={configs.description} />
+	<meta name="keywords" content={configs.keywords.join(',')} />
+	<meta name="author" content="realChientrm" />
+	<meta property="og:title" content={configs.title} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
+	<meta property="og:image" content="{PUBLIC_URL}/og.jpeg" />
+	<meta property="og:image:alt" content={configs.title} />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="768" />
+	<meta property="og:description" content={configs.description} />
+	<meta property="og:site_name" content={configs.title} />
+	<meta property="og:locale" content="EN_US" />
+	<!-- <link rel="shortcut icon" href="/favicon-16x16.png" /> -->
+</svelte:head>
 
 <header
 	class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
