@@ -1,6 +1,6 @@
 import { db } from '$lib/db';
 import { polls, votes } from '$lib/schema';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, sql } from 'drizzle-orm';
 
 export const load = async ({ params, locals }) => {
 	const pollId = parseInt(params.id);
@@ -20,10 +20,18 @@ export const actions = {
 		const pollId = parseInt(params.id);
 		const { userId, country } = locals;
 		await db.insert(votes).values({ pollId, country, userId, value: 'yes' });
+		await db
+			.update(polls)
+			.set({ votes: sql`votes + 1`, yes: sql`yes + 1` })
+			.where(eq(polls.id, pollId));
 	},
 	no: async ({ params, locals }) => {
 		const pollId = parseInt(params.id);
 		const { userId, country } = locals;
 		await db.insert(votes).values({ pollId, country, userId, value: 'no' });
+		await db
+			.update(polls)
+			.set({ votes: sql`votes + 1` })
+			.where(eq(polls.id, pollId));
 	}
 };

@@ -9,7 +9,9 @@ export const polls = sqliteTable('polls', {
 	title: text('title').notNull(),
 	createdAt: text('createdAt')
 		.default(sql`CURRENT_TIMESTAMP`)
-		.notNull()
+		.notNull(),
+	yes: integer('yes').notNull().default(0),
+	votes: integer('votes').notNull().default(0)
 });
 
 export const votes = sqliteTable(

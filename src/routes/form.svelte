@@ -22,7 +22,8 @@
 			<Input
 				{...attrs}
 				bind:value={$formData.title}
-				placeholder="Allow calling someone gay or retard again."
+				placeholder="Allow calling someone retard again."
+				autofocus
 			/>
 		</Form.Control>
 		<Form.Description>{configs.description}</Form.Description>

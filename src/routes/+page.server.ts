@@ -5,9 +5,13 @@ import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
 
-export const load = async () => ({
-	form: await superValidate(zod(formSchema))
-});
+export const load = async () => {
+	const [form, pollResults] = await Promise.all([
+		superValidate(zod(formSchema)),
+		db.select().from(polls)
+	]);
+	return { form, pollResults };
+};
 
 export const actions = {
 	default: async (event) => {
