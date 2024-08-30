@@ -2,6 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
+	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
 	export let data;
 	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
@@ -10,7 +11,9 @@
 </script>
 
 <PageHeader.Root>
-	<PageHeader.Heading>{data.pollResults[0].title}</PageHeader.Heading>
+	<PageHeader.Heading
+		>{flags[data.pollResults[0].country]} {data.pollResults[0].title}</PageHeader.Heading
+	>
 	<PageHeader.Description
 		balanced={false}
 		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-green-500' : 'bg-red-500')}
