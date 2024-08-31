@@ -7,8 +7,6 @@
 	import { cn } from '$lib/utils';
 	export let data;
 	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
-	$: yes = data.pollResults[0].yes;
-	$: votes = data.pollResults[0].votes;
 	interface Country {
 		yes: number;
 		votes: number;
@@ -23,8 +21,10 @@
 		}
 		countries.set(code, country);
 	});
-	$: title = data.pollResults[0].title;
-	$: description = `${data.pollResults[0].yes} yes, ${data.pollResults[0].votes - data.pollResults[0].yes} no`;
+	$: title = `${flags[data.pollResults[0].country]} ${data.pollResults[0].title}`;
+	$: yes = data.pollResults[0].yes;
+	$: votes = data.pollResults[0].votes;
+	$: description = `${yes} yes, ${votes - yes} no`;
 </script>
 
 <svelte:head>
@@ -36,12 +36,12 @@
 </svelte:head>
 
 <PageHeader.Root>
-	<PageHeader.Heading>{flags[data.pollResults[0].country]} {title}</PageHeader.Heading>
+	<PageHeader.Heading>{title}</PageHeader.Heading>
 	<PageHeader.Description
 		balanced={false}
 		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
 	>
-		{yes} yes, {votes - yes} no
+		{description}
 	</PageHeader.Description>
 </PageHeader.Root>
 
@@ -82,7 +82,7 @@
 						country.yes / country.votes > 0.5 ? 'bg-blue-500' : 'bg-red-500'
 					)}
 				>
-					{yes} yes, {votes - yes} no
+					{country.yes} yes, {country.votes - country.yes} no
 				</Table.Cell>
 			</Table.Row>
 		{/each}
