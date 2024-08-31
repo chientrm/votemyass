@@ -5,7 +5,7 @@ import { ImageResponse } from '@ethercorps/sveltekit-og';
 import { eq } from 'drizzle-orm';
 
 const template = `
-<div tw="flex h-full items-center justify-center">
+<div tw="flex h-full items-center justify-center bg-white">
     <div tw="flex flex-col w-full py-12 px-4 items-center justify-between p-8">
         <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left">
         <img src='${PUBLIC_URL}/title.jpeg' width='320' />
