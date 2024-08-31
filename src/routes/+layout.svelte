@@ -3,6 +3,7 @@
 	import { PUBLIC_URL } from '$env/static/public';
 	import icon from '$lib/ass.png';
 	import { buttonVariants } from '$lib/components/ui/button';
+	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	import { configs } from '$lib/configs';
 	import { cn } from '$lib/utils';
 	import MdiGithub from '~icons/mdi/github';
@@ -24,7 +25,7 @@
 	<meta property="og:description" content={configs.description} />
 	<meta property="og:site_name" content={configs.title} />
 	<meta property="og:locale" content="EN_US" />
-	<!-- <link rel="shortcut icon" href="/favicon-16x16.png" /> -->
+	<link rel="shortcut icon" href="/favicon.png" />
 </svelte:head>
 
 <header
@@ -59,6 +60,20 @@
 		</div>
 		<div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
 			<nav class="flex items-center">
+				<a href="https://x.com/realchientrm" target="_blank" rel="noopener noreferrer">
+					<div
+						class={cn(
+							buttonVariants({
+								size: 'sm',
+								variant: 'ghost'
+							}),
+							'h-8 w-8 px-0'
+						)}
+					>
+						<MingcuteSocialXFill class="h-4 w-4" />
+						<span class="sr-only">X</span>
+					</div>
+				</a>
 				<a href="https://github.com/chientrm/votemyass" target="_blank" rel="noopener noreferrer">
 					<div
 						class={cn(
