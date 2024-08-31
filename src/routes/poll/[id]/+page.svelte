@@ -38,7 +38,9 @@
 </PageHeader.Root>
 
 {#if myVoteResult}
-	You voted {myVoteResult.value}
+	<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
+		You voted {myVoteResult.value}
+	</h3>
 {:else}
 	<div class="flex flex-row items-center gap-2">
 		<div class="grow" />
