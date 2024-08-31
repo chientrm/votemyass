@@ -59,7 +59,7 @@
 								size: 'sm',
 								variant: 'ghost'
 							}),
-							'h-8 items-center px-0'
+							'h-8 items-center px-2'
 						)}
 					>
 						<SimpleIconsGithubsponsors class="mr-2 h-4 w-4" />
