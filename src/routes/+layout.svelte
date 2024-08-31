@@ -3,11 +3,11 @@
 	import { PUBLIC_URL } from '$env/static/public';
 	import icon from '$lib/ass.png';
 	import { buttonVariants } from '$lib/components/ui/button';
-	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
-	import SimpleIconsGithubsponsors from '~icons/simple-icons/githubsponsors';
 	import { configs } from '$lib/configs';
 	import { cn } from '$lib/utils';
 	import MdiGithub from '~icons/mdi/github';
+	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
+	import SimpleIconsGithubsponsors from '~icons/simple-icons/githubsponsors';
 	import '../app.css';
 </script>
 
@@ -15,9 +15,10 @@
 	<meta name="keywords" content={configs.keywords.join(',')} />
 	<meta name="author" content="realChientrm" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
+	<meta property="og:url" content="{PUBLIC_URL}{$page.url.pathname}" />
 	<meta property="og:locale" content="EN_US" />
 	<link rel="shortcut icon" href="/favicon2.png" />
+	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
 <header
