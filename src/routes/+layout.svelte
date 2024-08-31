@@ -27,7 +27,7 @@
 		<div class="mr-4 flex">
 			<a href="/" class="mr-6 flex items-center space-x-2">
 				<img src={icon} alt="Vote my ass" class="h-6 w-6" />
-				<span class="hidden font-bold sm:inline-block">VoteMyAss.com</span>
+				<span class="inline-block font-bold">VoteMyAss.com</span>
 			</a>
 			<nav class="flex items-center gap-6 text-sm">
 				<!-- <a
@@ -50,7 +50,7 @@
 				</a> -->
 			</nav>
 		</div>
-		<div class="flex flex-1 items-center justify-end justify-between space-x-2">
+		<div class="flex flex-1 items-center justify-end space-x-2">
 			<nav class="flex items-center">
 				<a href="https://buymeacoffee.com/chientrm" target="_blank" rel="noopener noreferrer">
 					<div
