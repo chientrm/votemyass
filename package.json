@@ -14,7 +14,6 @@
 		"migrate": "drizzle-kit migrate"
 	},
 	"devDependencies": {
-		"@ethercorps/sveltekit-og": "^3.0.0",
 		"@iconify/json": "^2.2.242",
 		"@sveltejs/adapter-node": "^5.2.2",
 		"@sveltejs/kit": "^2.0.0",
@@ -51,6 +50,7 @@
 		"sveltekit-superforms": "^2.17.0",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1",
-		"zod": "^3.23.8"
+		"zod": "^3.23.8",
+		"@ethercorps/sveltekit-og": "^3.0.0"
 	}
 }
