@@ -20,7 +20,7 @@
 
 <PageHeader.Root>
 	<PageHeader.Heading>Those who have hands, let them vote!</PageHeader.Heading>
-	<PageHeader.Description balanced={false}>{configs.description}</PageHeader.Description>
+	<PageHeader.Description balanced={false}>{configs.features}</PageHeader.Description>
 </PageHeader.Root>
 
 <Form data={data.form} />
