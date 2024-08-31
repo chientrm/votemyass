@@ -8,5 +8,10 @@ export default defineConfig({
 		Icons({
 			compiler: 'svelte'
 		})
-	]
+	],
+	build: {
+		rollupOptions: {
+			external: ['@resvg/resvg-js', 'css-tree']
+		}
+	}
 });

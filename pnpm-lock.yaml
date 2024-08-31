@@ -11,6 +11,9 @@ importers:
       '@ethercorps/sveltekit-og':
         specifier: ^3.0.0
         version: 3.0.0(svelte@4.2.19)
+      '@resvg/resvg-js':
+        specifier: ^2.6.2
+        version: 2.6.2
       better-sqlite3:
         specifier: ^11.2.1
         version: 11.2.1
@@ -20,12 +23,18 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      css-tree:
+        specifier: ^2.3.1
+        version: 2.3.1
       drizzle-orm:
         specifier: ^0.33.0
         version: 0.33.0(@types/better-sqlite3@7.6.11)(better-sqlite3@11.2.1)
       formsnap:
         specifier: ^1.0.1
         version: 1.0.1(svelte@4.2.19)(sveltekit-superforms@2.17.0(@sveltejs/kit@2.5.25(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@22.5.1)))(svelte@4.2.19)(vite@5.4.2(@types/node@22.5.1)))(svelte@4.2.19))
+      resvg-js~:
+        specifier: "link:\e[200~@resvg/resvg-js~"
+        version: "link:\e[200~@resvg/resvg-js~"
       sveltekit-superforms:
         specifier: ^2.17.0
         version: 2.17.0(@sveltejs/kit@2.5.25(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@22.5.1)))(svelte@4.2.19)(vite@5.4.2(@types/node@22.5.1)))(svelte@4.2.19)
