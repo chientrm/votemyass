@@ -1,12 +1,12 @@
 <script>
+	import { PUBLIC_URL } from '$env/static/public';
+	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
 	import * as Table from '$lib/components/ui/table';
-	import { Button } from '$lib/components/ui/button';
 	import { configs } from '$lib/configs';
-	import Form from './form.svelte';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
-	import { PUBLIC_URL } from '$env/static/public';
+	import Form from './form.svelte';
 
 	export let data;
 </script>

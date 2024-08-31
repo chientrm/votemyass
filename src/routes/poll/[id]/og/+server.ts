@@ -27,11 +27,13 @@ const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-4
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
 export const GET = async ({ params }) => {
-	const pollResults = await db
-		.select()
-		.from(polls)
-		.where(eq(polls.id, parseInt(params.id)));
-	return new ImageResponse(template.replaceAll('#description', pollResults[0].title), {
+	const { title } = await db.query.polls
+		.findFirst({
+			columns: { title: true },
+			where: eq(polls.id, parseInt(params.id))
+		})
+		.then((res) => res!);
+	return new ImageResponse(template.replaceAll('#description', title), {
 		height: 630,
 		width: 1200,
 		fonts: [

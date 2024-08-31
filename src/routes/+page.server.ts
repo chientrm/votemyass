@@ -1,15 +1,18 @@
 import { db } from '$lib/db';
 import { polls } from '$lib/schema';
 import { redirect } from '@sveltejs/kit';
+import { desc } from 'drizzle-orm';
 import { fail, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
-import { desc } from 'drizzle-orm';
 
 export const load = async () => {
 	const [form, pollResults] = await Promise.all([
 		superValidate(zod(formSchema)),
-		db.select().from(polls).orderBy(desc(polls.createdAt))
+		db.query.polls.findMany({
+			columns: { id: true, country: true, title: true, yes: true, votes: true },
+			orderBy: desc(polls.createdAt)
+		})
 	]);
 	return { form, pollResults };
 };

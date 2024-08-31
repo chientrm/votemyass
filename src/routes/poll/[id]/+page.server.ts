@@ -2,13 +2,27 @@ import { db } from '$lib/db';
 import { polls, votes } from '$lib/schema';
 import { eq, sql } from 'drizzle-orm';
 
-export const load = async ({ params, locals }) => {
+export const load = async ({ params }) => {
 	const pollId = parseInt(params.id);
-	const [pollResults, voteResults] = await Promise.all([
-		db.select().from(polls).where(eq(polls.id, pollId)),
-		db.select().from(votes).where(eq(votes.pollId, pollId))
+	const [pollResult, voteResults] = await Promise.all([
+		db.query.polls
+			.findFirst({
+				columns: {
+					id: true,
+					yes: true,
+					votes: true,
+					country: true,
+					title: true
+				},
+				where: eq(polls.id, pollId)
+			})
+			.then((res) => res!),
+		db.query.votes.findMany({
+			columns: { userId: true, country: true, value: true },
+			where: eq(votes.pollId, pollId)
+		})
 	]);
-	return { pollResults, voteResults };
+	return { pollResult, voteResults };
 };
 
 export const actions = {

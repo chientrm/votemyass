@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
 	import { PUBLIC_URL } from '$env/static/public';
-	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
 	import * as Table from '$lib/components/ui/table';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
-	import { page } from '$app/stores';
+	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	export let data;
 	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
 	interface Country {
@@ -24,9 +24,9 @@
 		}
 		countries.set(code, country);
 	});
-	$: title = `${flags[data.pollResults[0].country]} ${data.pollResults[0].title}`;
-	$: yes = data.pollResults[0].yes;
-	$: votes = data.pollResults[0].votes;
+	$: title = `${flags[data.pollResult.country]} ${data.pollResult.title}`;
+	$: yes = data.pollResult.yes;
+	$: votes = data.pollResult.votes;
 	$: description = `${yes} yes, ${votes - yes} no`;
 	$: url = `${PUBLIC_URL}${$page.url.pathname}`;
 </script>
@@ -37,7 +37,7 @@
 	<meta name="description" content={description} />
 	<meta property="og:site_name" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content="{PUBLIC_URL}/poll/{data.pollResults[0].id}/og" />
+	<meta property="og:image" content="{PUBLIC_URL}/poll/{data.pollResult.id}/og" />
 	<meta property="og:image:alt" content={title} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
