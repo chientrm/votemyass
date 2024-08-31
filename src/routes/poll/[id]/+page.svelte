@@ -1,13 +1,28 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
+	import * as Table from '$lib/components/ui/table';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
 	export let data;
 	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
 	$: yes = data.pollResults[0].yes;
 	$: votes = data.pollResults[0].votes;
+	interface Country {
+		yes: number;
+		votes: number;
+	}
+	$: countries = new Map<string, Country>();
+	$: data.voteResults.forEach((voteResult) => {
+		const code = voteResult.country.substring(0, 2);
+		const country = countries.get(code) ?? { yes: 0, votes: 0 };
+		country.votes++;
+		if (voteResult.value === 'yes') {
+			country.yes++;
+		}
+		countries.set(code, country);
+	});
 </script>
 
 <PageHeader.Root>
@@ -16,9 +31,9 @@
 	>
 	<PageHeader.Description
 		balanced={false}
-		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-green-500' : 'bg-red-500')}
+		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
 	>
-		{yes} yes/ {votes} votes ({((100 * yes) / votes).toFixed(0)} %)
+		{yes} yes, {votes - yes} no
 	</PageHeader.Description>
 </PageHeader.Root>
 
@@ -36,3 +51,30 @@
 		</form>
 	</div>
 {/if}
+
+<Table.Root>
+	<Table.Caption>A list of all votes.</Table.Caption>
+	<Table.Header>
+		<Table.Row>
+			<Table.Head>Country</Table.Head>
+			<Table.Head>Votes</Table.Head>
+			<Table.Head class="text-right">Result</Table.Head>
+		</Table.Row>
+	</Table.Header>
+	<Table.Body>
+		{#each countries.entries() as [code, country]}
+			<Table.Row>
+				<Table.Cell class="font-medium">{flags[code]}</Table.Cell>
+				<Table.Cell>{country.votes}</Table.Cell>
+				<Table.Cell
+					class={cn(
+						'text-right text-white',
+						country.yes / country.votes > 0.5 ? 'bg-blue-500' : 'bg-red-500'
+					)}
+				>
+					{yes} yes, {votes - yes} no
+				</Table.Cell>
+			</Table.Row>
+		{/each}
+	</Table.Body>
+</Table.Root>

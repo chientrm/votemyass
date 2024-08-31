@@ -22,6 +22,7 @@
 	<Table.Header>
 		<Table.Row>
 			<Table.Head class="w-[100px]">Country</Table.Head>
+			<Table.Head class="w-[100px]">Votes</Table.Head>
 			<Table.Head>Title</Table.Head>
 			<Table.Head class="text-right">Result</Table.Head>
 		</Table.Row>
@@ -30,13 +31,14 @@
 		{#each data.pollResults as { id, title, country, yes, votes }}
 			<Table.Row>
 				<Table.Cell class="font-medium">{flags[country]}</Table.Cell>
+				<Table.Cell>{votes}</Table.Cell>
 				<Table.Cell>
 					<Button variant="link" href="/poll/{id}">{title}</Button>
 				</Table.Cell>
 				<Table.Cell
-					class={cn('text-right text-white', yes / votes >= 0.5 ? 'bg-green-500' : 'bg-red-500')}
+					class={cn('text-right text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
 				>
-					{yes} yes/ {votes} votes ({((100 * yes) / votes).toFixed(0)} %)
+					{yes} yes, {votes - yes} no
 				</Table.Cell>
 			</Table.Row>
 		{/each}
