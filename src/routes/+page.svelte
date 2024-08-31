@@ -17,10 +17,10 @@
 	<meta name="description" content={configs.description} />
 	<meta property="og:site_name" content={configs.title} />
 	<meta property="og:description" content={configs.description} />
-	<meta property="og:image" content="{PUBLIC_URL}/og.jpeg" />
+	<meta property="og:image" content="{PUBLIC_URL}/og2.jpeg" />
 	<meta property="og:image:alt" content={configs.title} />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="768" />
 </svelte:head>
 
 <PageHeader.Root>
