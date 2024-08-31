@@ -52,7 +52,7 @@
 		</div>
 		<div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
 			<nav class="flex items-center">
-				<a href="https://github.com/chientrm/votemyass" target="_blank" rel="noopener noreferrer">
+				<a href="https://buymeacoffee.com/chientrm" target="_blank" rel="noopener noreferrer">
 					<div
 						class={cn(
 							buttonVariants({
