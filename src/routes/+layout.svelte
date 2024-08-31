@@ -17,7 +17,7 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
 	<meta property="og:locale" content="EN_US" />
-	<link rel="shortcut icon" href="/favicon.png" />
+	<link rel="shortcut icon" href="/favicon2.png" />
 </svelte:head>
 
 <header
