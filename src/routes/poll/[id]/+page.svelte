@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { PUBLIC_URL } from '$env/static/public';
+	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
 	import * as Table from '$lib/components/ui/table';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
+	import { page } from '$app/stores';
 	export let data;
 	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
 	interface Country {
@@ -26,6 +28,7 @@
 	$: yes = data.pollResults[0].yes;
 	$: votes = data.pollResults[0].votes;
 	$: description = `${yes} yes, ${votes - yes} no`;
+	$: url = `${PUBLIC_URL}${$page.url.pathname}`;
 </script>
 
 <svelte:head>
@@ -66,6 +69,11 @@
 		</form>
 	</div>
 {/if}
+
+<Button href="https://x.com/intent/tweet?url={url}&text={title}" target="_blank">
+	<MingcuteSocialXFill class="mr-2 h-4 w-4" />
+	Share
+</Button>
 
 <Table.Root>
 	<Table.Caption>A list of all votes.</Table.Caption>
