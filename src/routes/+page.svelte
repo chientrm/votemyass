@@ -10,6 +10,14 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>{configs.title}</title>
+	<meta property="og:title" content={configs.title} />
+	<meta name="description" content={configs.description} />
+	<meta property="og:site_name" content={configs.title} />
+	<meta property="og:description" content={configs.description} />
+</svelte:head>
+
 <PageHeader.Root>
 	<PageHeader.Heading>Those who have hands, let them vote!</PageHeader.Heading>
 	<PageHeader.Description balanced={false}>{configs.description}</PageHeader.Description>

@@ -23,12 +23,20 @@
 		}
 		countries.set(code, country);
 	});
+	$: title = data.pollResults[0].title;
+	$: description = `${data.pollResults[0].yes} yes, ${data.pollResults[0].votes - data.pollResults[0].yes} no`;
 </script>
 
+<svelte:head>
+	<title>{title}</title>
+	<meta property="og:title" content={title} />
+	<meta name="description" content={description} />
+	<meta property="og:site_name" content={title} />
+	<meta property="og:description" content={description} />
+</svelte:head>
+
 <PageHeader.Root>
-	<PageHeader.Heading
-		>{flags[data.pollResults[0].country]} {data.pollResults[0].title}</PageHeader.Heading
-	>
+	<PageHeader.Heading>{flags[data.pollResults[0].country]} {title}</PageHeader.Heading>
 	<PageHeader.Description
 		balanced={false}
 		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}

@@ -11,19 +11,14 @@
 </script>
 
 <svelte:head>
-	<title>{configs.title}</title>
-	<meta name="description" content={configs.description} />
 	<meta name="keywords" content={configs.keywords.join(',')} />
 	<meta name="author" content="realChientrm" />
-	<meta property="og:title" content={configs.title} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
 	<meta property="og:image" content="{PUBLIC_URL}/og.jpeg" />
 	<meta property="og:image:alt" content={configs.title} />
 	<meta property="og:image:width" content="1024" />
 	<meta property="og:image:height" content="768" />
-	<meta property="og:description" content={configs.description} />
-	<meta property="og:site_name" content={configs.title} />
 	<meta property="og:locale" content="EN_US" />
 	<link rel="shortcut icon" href="/favicon.png" />
 </svelte:head>
