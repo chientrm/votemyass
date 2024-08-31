@@ -4,6 +4,7 @@
 	import icon from '$lib/ass.png';
 	import { buttonVariants } from '$lib/components/ui/button';
 	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
+	import SimpleIconsGithubsponsors from '~icons/simple-icons/githubsponsors';
 	import { configs } from '$lib/configs';
 	import { cn } from '$lib/utils';
 	import MdiGithub from '~icons/mdi/github';
@@ -15,7 +16,7 @@
 	<meta name="author" content="realChientrm" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
- 	<meta property="og:locale" content="EN_US" />
+	<meta property="og:locale" content="EN_US" />
 	<link rel="shortcut icon" href="/favicon.png" />
 </svelte:head>
 
@@ -51,6 +52,20 @@
 		</div>
 		<div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
 			<nav class="flex items-center">
+				<a href="https://github.com/chientrm/votemyass" target="_blank" rel="noopener noreferrer">
+					<div
+						class={cn(
+							buttonVariants({
+								size: 'sm',
+								variant: 'ghost'
+							}),
+							'h-8 items-center px-0'
+						)}
+					>
+						<SimpleIconsGithubsponsors class="mr-2 h-4 w-4" />
+						<span>Donate</span>
+					</div>
+				</a>
 				<a href="https://x.com/realchientrm" target="_blank" rel="noopener noreferrer">
 					<div
 						class={cn(
