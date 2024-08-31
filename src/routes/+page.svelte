@@ -24,7 +24,7 @@
 </svelte:head>
 
 <PageHeader.Root>
-	<PageHeader.Heading>Those who have hands, let them vote!</PageHeader.Heading>
+	<PageHeader.Heading>VoteMyAss.com</PageHeader.Heading>
 	<PageHeader.Description balanced={false}>{configs.features}</PageHeader.Description>
 </PageHeader.Root>
 
