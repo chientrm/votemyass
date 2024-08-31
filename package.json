@@ -14,6 +14,7 @@
 		"migrate": "drizzle-kit migrate"
 	},
 	"devDependencies": {
+		"@ethercorps/sveltekit-og": "^3.0.0",
 		"@iconify/json": "^2.2.242",
 		"@sveltejs/adapter-node": "^5.2.2",
 		"@sveltejs/kit": "^2.0.0",

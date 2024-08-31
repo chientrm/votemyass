@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { PUBLIC_URL } from '$env/static/public';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
 	import * as Table from '$lib/components/ui/table';
@@ -33,6 +34,10 @@
 	<meta name="description" content={description} />
 	<meta property="og:site_name" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image" content="{PUBLIC_URL}/{data.pollResults[0].id}/og" />
+	<meta property="og:image:alt" content={title} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 </svelte:head>
 
 <PageHeader.Root>

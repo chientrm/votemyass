@@ -6,6 +6,7 @@
 	import Form from './form.svelte';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
+	import { PUBLIC_URL } from '$env/static/public';
 
 	export let data;
 </script>
@@ -16,6 +17,10 @@
 	<meta name="description" content={configs.description} />
 	<meta property="og:site_name" content={configs.title} />
 	<meta property="og:description" content={configs.description} />
+	<meta property="og:image" content="{PUBLIC_URL}/og.jpeg" />
+	<meta property="og:image:alt" content={configs.title} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 </svelte:head>
 
 <PageHeader.Root>

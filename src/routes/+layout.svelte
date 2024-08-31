@@ -15,11 +15,7 @@
 	<meta name="author" content="realChientrm" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={PUBLIC_URL + $page.url.pathname} />
-	<meta property="og:image" content="{PUBLIC_URL}/og.jpeg" />
-	<meta property="og:image:alt" content={configs.title} />
-	<meta property="og:image:width" content="1024" />
-	<meta property="og:image:height" content="768" />
-	<meta property="og:locale" content="EN_US" />
+ 	<meta property="og:locale" content="EN_US" />
 	<link rel="shortcut icon" href="/favicon.png" />
 </svelte:head>
 
