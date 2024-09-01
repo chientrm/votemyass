@@ -9,7 +9,6 @@
 	import { cn } from '$lib/utils';
 	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	export let data;
-	$: myVoteResult = data.voteResults.find((vote) => vote.userId === data.userId);
 	interface Country {
 		yes: number;
 		votes: number;
@@ -53,9 +52,9 @@
 	</PageHeader.Description>
 </PageHeader.Root>
 
-{#if myVoteResult}
+{#if data.myVoteResult}
 	<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">
-		You voted {myVoteResult.value}
+		You voted {data.myVoteResult.value}
 	</h3>
 {:else}
 	<div class="flex flex-row items-center gap-2">
