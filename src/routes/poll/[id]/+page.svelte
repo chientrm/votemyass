@@ -46,7 +46,7 @@
 	<PageHeader.Heading>{title}</PageHeader.Heading>
 	<PageHeader.Description
 		balanced={false}
-		class={cn('p-2 text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
+		class={cn('p-2 text-white', votes === 0 || yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
 	>
 		{description}
 	</PageHeader.Description>
