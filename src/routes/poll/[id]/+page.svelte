@@ -4,6 +4,7 @@
 	import { PUBLIC_URL } from '$env/static/public';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
+	import IcBaselineFacebook from '~icons/ic/baseline-facebook';
 	import * as Table from '$lib/components/ui/table';
 	import { flags } from '$lib/flags';
 	import { cn } from '$lib/utils';
@@ -71,6 +72,11 @@
 
 <Button href="https://x.com/intent/tweet?url={url}&text={title}" target="_blank">
 	<MingcuteSocialXFill class="mr-2 h-4 w-4" />
+	Share
+</Button>
+
+<Button href="https://www.facebook.com/sharer/sharer.php?u={url}" target="_blank">
+	<IcBaselineFacebook class="mr-2 h-4 w-4" />
 	Share
 </Button>
 
