@@ -11,7 +11,7 @@ export const load = async () => {
 		superValidate(zod(formSchema)),
 		db.query.polls.findMany({
 			columns: { id: true, country: true, title: true, yes: true, votes: true },
-			orderBy: desc(polls.createdAt)
+			orderBy: [desc(polls.votes), desc(polls.createdAt)]
 		})
 	]);
 	return { form, pollResults };
