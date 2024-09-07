@@ -48,11 +48,15 @@
 				<Table.Cell>
 					<Button variant="link" href="/poll/{id}">{title}</Button>
 				</Table.Cell>
-				<Table.Cell
-					class={cn('text-right text-white', yes / votes >= 0.5 ? 'bg-blue-500' : 'bg-red-500')}
-				>
-					{yes} yes, {votes - yes} no
-				</Table.Cell>
+				{#if yes > votes - yes}
+					<Table.Cell class="bg-green-500 text-right text-white">
+						Yes ({(100 * yes) / votes}%)
+					</Table.Cell>
+				{:else}
+					<Table.Cell class="bg-red-500 text-right text-white">
+						No ({(100 * yes) / votes}%)
+					</Table.Cell>
+				{/if}
 			</Table.Row>
 		{/each}
 	</Table.Body>

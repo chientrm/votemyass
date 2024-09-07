@@ -94,14 +94,15 @@
 			<Table.Row>
 				<Table.Cell class="font-medium">{flags[code]}</Table.Cell>
 				<Table.Cell>{country.votes}</Table.Cell>
-				<Table.Cell
-					class={cn(
-						'text-right text-white',
-						country.yes / country.votes > 0.5 ? 'bg-blue-500' : 'bg-red-500'
-					)}
-				>
-					{country.yes} yes, {country.votes - country.yes} no
-				</Table.Cell>
+				{#if country.yes > country.votes - country.yes}
+					<Table.Cell class="bg-green-500 text-right text-white">
+						Yes ({(100 * country.yes) / country.votes}%)
+					</Table.Cell>
+				{:else}
+					<Table.Cell class="bg-red-500 text-right text-white">
+						No ({(100 * country.yes) / country.votes}%)
+					</Table.Cell>
+				{/if}
 			</Table.Row>
 		{/each}
 	</Table.Body>
