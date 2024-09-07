@@ -7,7 +7,7 @@
 	import IcBaselineFacebook from '~icons/ic/baseline-facebook';
 	import * as Table from '$lib/components/ui/table';
 	import { flags } from '$lib/flags';
-	import { cn } from '$lib/utils';
+	import { cn, percent } from '$lib/utils';
 	import MingcuteSocialXFill from '~icons/mingcute/social-x-fill';
 	export let data;
 	interface Country {
@@ -96,11 +96,11 @@
 				<Table.Cell>{country.votes}</Table.Cell>
 				{#if country.yes > country.votes - country.yes}
 					<Table.Cell class="bg-green-500 text-right text-white">
-						Yes ({(100 * country.yes) / country.votes}%)
+						Yes {percent(country.yes, country.votes)}
 					</Table.Cell>
 				{:else}
 					<Table.Cell class="bg-red-500 text-right text-white">
-						No ({(100 * country.yes) / country.votes}%)
+						No {percent(country.yes, country.votes)}
 					</Table.Cell>
 				{/if}
 			</Table.Row>

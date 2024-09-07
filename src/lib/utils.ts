@@ -54,3 +54,5 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
+
+export const percent = (yes: number, votes: number) => `(${((100 * yes) / votes).toFixed()}%)`;

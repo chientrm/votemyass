@@ -5,7 +5,7 @@
 	import * as Table from '$lib/components/ui/table';
 	import { configs } from '$lib/configs';
 	import { flags } from '$lib/flags';
-	import { cn } from '$lib/utils';
+	import { cn, percent } from '$lib/utils';
 	import Form from './form.svelte';
 
 	export let data;
@@ -50,11 +50,11 @@
 				</Table.Cell>
 				{#if yes > votes - yes}
 					<Table.Cell class="bg-green-500 text-right text-white">
-						Yes ({(100 * yes) / votes}%)
+						Yes {percent(yes, votes)}
 					</Table.Cell>
 				{:else}
 					<Table.Cell class="bg-red-500 text-right text-white">
-						No ({(100 * yes) / votes}%)
+						No {percent(yes, votes)}
 					</Table.Cell>
 				{/if}
 			</Table.Row>
