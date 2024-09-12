@@ -1,7 +1,9 @@
 <script>
+	import { page } from '$app/stores';
 	import { PUBLIC_URL } from '$env/static/public';
 	import { Button } from '$lib/components/ui/button';
 	import * as PageHeader from '$lib/components/ui/page-header';
+	import { Separator } from '$lib/components/ui/separator';
 	import * as Table from '$lib/components/ui/table';
 	import { configs } from '$lib/configs';
 	import { flags } from '$lib/flags';
@@ -29,6 +31,30 @@
 </PageHeader.Root>
 
 <Form data={data.form} />
+
+<div class="my-4 flex h-5 items-center space-x-4 text-sm">
+	<Button
+		href="/"
+		variant="link"
+		class={cn(
+			'transition-colors hover:text-foreground/80',
+			$page.url.searchParams.has('latest') ? 'text-foreground/60' : 'text-foreground'
+		)}
+	>
+		Top
+	</Button>
+	<Separator orientation="vertical" />
+	<Button
+		href="/?latest"
+		variant="link"
+		class={cn(
+			'transition-colors hover:text-foreground/80',
+			$page.url.searchParams.has('latest') ? 'text-foreground' : 'text-foreground/60'
+		)}
+	>
+		Latest
+	</Button>
+</div>
 
 <Table.Root>
 	<Table.Caption>A list of recent polls.</Table.Caption>
