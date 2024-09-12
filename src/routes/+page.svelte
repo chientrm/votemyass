@@ -38,21 +38,21 @@
 		variant="link"
 		class={cn(
 			'transition-colors hover:text-foreground/80',
-			$page.url.searchParams.has('latest') ? 'text-foreground/60' : 'text-foreground'
-		)}
-	>
-		Top
-	</Button>
-	<Separator orientation="vertical" />
-	<Button
-		href="/?latest"
-		variant="link"
-		class={cn(
-			'transition-colors hover:text-foreground/80',
-			$page.url.searchParams.has('latest') ? 'text-foreground' : 'text-foreground/60'
+			$page.url.searchParams.has('top') ? 'text-foreground' : 'text-foreground/60'
 		)}
 	>
 		Latest
+	</Button>
+	<Separator orientation="vertical" />
+	<Button
+		href="/?top"
+		variant="link"
+		class={cn(
+			'transition-colors hover:text-foreground/80',
+			$page.url.searchParams.has('top') ? 'text-foreground/60' : 'text-foreground'
+		)}
+	>
+		Top
 	</Button>
 </div>
 
