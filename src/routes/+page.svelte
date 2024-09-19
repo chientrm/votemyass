@@ -38,7 +38,7 @@
 		variant="link"
 		class={cn(
 			'transition-colors hover:text-foreground/80',
-			!$page.url.searchParams.has('latest') ? 'text-foreground' : 'text-foreground/60'
+			!$page.url.searchParams.has('latest') ? 'text-foreground/60' : 'text-foreground'
 		)}
 	>
 		Top
@@ -49,7 +49,7 @@
 		variant="link"
 		class={cn(
 			'transition-colors hover:text-foreground/80',
-			$page.url.searchParams.has('latest') ? 'text-foreground' : 'text-foreground/60'
+			$page.url.searchParams.has('latest') ? 'text-foreground/60' : 'text-foreground'
 		)}
 	>
 		Latest
