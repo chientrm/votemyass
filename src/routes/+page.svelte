@@ -34,6 +34,17 @@
 
 <div class="my-4 flex h-5 items-center space-x-4 text-sm">
 	<Button
+		href="/"
+		variant="link"
+		class={cn(
+			'transition-colors hover:text-foreground/80',
+			!$page.url.searchParams.has('latest') ? 'text-foreground' : 'text-foreground/60'
+		)}
+	>
+		Top
+	</Button>
+	<Separator orientation="vertical" />
+	<Button
 		href="/?latest"
 		variant="link"
 		class={cn(
@@ -42,17 +53,6 @@
 		)}
 	>
 		Latest
-	</Button>
-	<Separator orientation="vertical" />
-	<Button
-		href="/"
-		variant="link"
-		class={cn(
-			'transition-colors hover:text-foreground/80',
-			$page.url.searchParams.has('latest') ? 'text-foreground/60' : 'text-foreground'
-		)}
-	>
-		Top
 	</Button>
 </div>
 
