@@ -7,14 +7,14 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { formSchema } from './schema';
 
 export const load = async ({ url }) => {
-	const top = url.searchParams.has('top');
+	const latest = url.searchParams.has('latest');
 	const [form, pollResults] = await Promise.all([
 		superValidate(zod(formSchema)),
 		db.query.polls.findMany({
 			columns: { id: true, country: true, title: true, yes: true, votes: true },
-			orderBy: top
-				? [desc(polls.votes), desc(polls.createdAt)]
-				: [desc(polls.createdAt), desc(polls.votes)]
+			orderBy: latest
+				? [desc(polls.createdAt), desc(polls.votes)]
+				: [desc(polls.votes), desc(polls.createdAt)]
 		})
 	]);
 	return { form, pollResults };
